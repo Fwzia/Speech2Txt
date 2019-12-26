@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.speech2txt">
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    if (ContextCompat.checkSelfPermission(getActivity(),
+    Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+
+    ActivityCompat.requestPermissions(getActivity(),
+    new String[]{Manifest.permission.RECORD_AUDIO},
+    REQUEST_MICROPHONE);
+
+    }
 
     <application
         android:allowBackup="true"
